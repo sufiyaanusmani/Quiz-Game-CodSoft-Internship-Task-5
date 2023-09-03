@@ -1,0 +1,27 @@
+{% extends 'base/index.html' %}
+
+{% block title %}
+Quiz Game | Quiz
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <form action="{% url 'quiz-page' %}" method="POST">
+        {% csrf_token %}
+        {% for q in mcqBank %}
+        <div class="container p-4 rounded" style='background-color: #e1e1e1;'>
+        <h5>{{ q.question }}</h5>
+        {% for option in q.options %}
+        <input class='mb-3' type="radio" name="{{ q.question }}" value="{{ option }}" id="{{ option }}" required="required">
+        <label for="{{ option }}">{{ option }}</label>
+        <br>
+        {% endfor %}
+        </div>
+        <br>
+        {% endfor %}
+        <div class="d-grid gap-2 col-6 mx-auto mb-5">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

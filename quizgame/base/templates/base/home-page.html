@@ -1,0 +1,21 @@
+{% extends 'base/index.html' %}
+
+{% block title %}
+Quiz Game | Home
+{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h3>Instructions</h3>
+    <ol>
+        <li>Read the instructions carefully before starting the test.</li>
+        <li>There are a total of {{ total }} questions. Each question has 4 answer choices.</li>
+        <li>Your score will be calculated based on the number of correct answers.</li>
+        <li>If you are not sure of the answer, do not guess. Leave the question blank and come back to it later.</li>
+        <li>Once completed, press the submit button</li>
+    </ol>
+
+    <a href='{% url 'quiz-page' %}' class="btn btn-outline-primary mt-3">Start Quiz</a>
+</div>
+{% endblock content %}
